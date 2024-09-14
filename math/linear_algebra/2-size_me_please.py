@@ -16,7 +16,15 @@
 #             cols = len(matrix[0]) if rows > 0 else 0
 #             mat = list((rows, cols))
 #             return mat
+
 def matrix_shape(matrix):
+    """
+      Args:
+      -a matrix presented as a list
+
+      Returns:
+      - returs a list of integers presennting the matrix shape.
+    """
     mat = []
     while isinstance(matrix, list):
         mat.append(len(matrix))
