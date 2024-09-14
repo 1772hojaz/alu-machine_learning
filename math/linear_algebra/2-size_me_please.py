@@ -6,10 +6,11 @@ def matrix_shape(matrix):
       blocks = len(matrix)
       rows = len(matrix[0]) if blocks > 0 else 0
       cols = len(matrix[0][0]) if rows > 0 else 0
-      return f"[{blocks}, {rows}, {cols} ]"
+      mat = [blocks, rows, cols]
+      return mat
     else:
         if all(isinstance(row, list) for row in matrix):
             rows = len(matrix)
             cols = len(matrix[0]) if rows > 0 else 0
-
-            return f"[{rows}, {cols}]"
+            mat = [rows, cols]
+            return mat
