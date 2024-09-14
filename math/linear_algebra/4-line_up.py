@@ -3,6 +3,7 @@
 a function that adds tewo arrays element-wise
 """
 
+
 def add_arrays(arr1, arr2):
     """Adds two matrices element-wise.
 
