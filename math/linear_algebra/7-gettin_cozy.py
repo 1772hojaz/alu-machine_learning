@@ -17,8 +17,6 @@ def cat_matrices2D(mat1, mat2, axis=0):
     """
     if not mat1 or not mat2:
         return None
-
-    
     if axis == 0:
         if len(mat1[0]) != len(mat2[0]):
             return None
