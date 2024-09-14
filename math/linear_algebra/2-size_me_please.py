@@ -3,11 +3,13 @@
 
 def matrix_shape(matrix):
     """
-      Args:
-      -a matrix presented as a list
+    Calculate the shape of a matrix and return it as a list of integers.
 
-      Returns:
-      - returs a list of integers presennting the matrix shape.
+    Args:
+    - matrix (list): A matrix presented as a list.
+
+    Returns:
+    - list: A list of integers presenting the shape matrix shape
     """
     mat = []
     while isinstance(matrix, list):
