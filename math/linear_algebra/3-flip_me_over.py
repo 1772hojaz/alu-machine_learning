@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-this module has a funtion that returns a transpose of a 
+this module has a funtion that returns a transpose of a
 2D matrix
 """
+
 
 def matrix_transpose(matrix):
     """Transposes a given matrix.
