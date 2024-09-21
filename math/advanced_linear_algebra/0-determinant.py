@@ -2,15 +2,17 @@
 
 def determinant(matrix):
     """
-    A function determinant(matrix) -  That calculates the determinant
-    matrix is a list of lists whose determinant should be calculated
-    If matrix: is not a list of lists, raise a TypeError with the
-    message matrix must be a list of lists
-    If matrix:  is not square, raise a ValueError with the message
-      matrix must be a square matrix
-    The list [[]] represents a 0x0 matrix
+    Calculates the determinant of a square matrix.
 
-    Returns: the determinant of matrix
+    Args:
+        matrix: A list of lists whose determinant should be calculated.
+
+    Raises:
+        TypeError: If matrix is not a list of lists.
+        ValueError: If matrix is not square.
+
+    Returns:
+        The determinant of the matrix.
     """
 
     if not all(isinstance(x, list) for x in matrix):
