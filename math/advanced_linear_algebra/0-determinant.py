@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+"""
+This function determinat of a square
+"""
+
 
 def determinant(matrix):
     """
@@ -14,7 +18,6 @@ def determinant(matrix):
     Returns:
         The determinant of the matrix.
     """
-
 
     if not all(isinstance(x, list) for x in matrix):
         raise TypeError("matrix must be a list of lists")
