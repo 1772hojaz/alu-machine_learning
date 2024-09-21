@@ -15,6 +15,7 @@ def determinant(matrix):
         The determinant of the matrix.
     """
 
+
     if not all(isinstance(x, list) for x in matrix):
         raise TypeError("matrix must be a list of lists")
 
