@@ -1,20 +1,32 @@
 #!/usr/bin/env python3
 import numpy as np
+
 """
 this fn Determines the definiteness of a given square matrix.
 """
 
 
 def definiteness(matrix):
+
     """
-    Determines the definiteness of a given square matrix.
+        Determines the definiteness of a given square matrix.
 
-    Args:
-        matrix: A numpy.ndarray of shape (n, n) whose
-        definiteness should be calculated.
+        Args:
+            matrix (numpy.ndarray): A square matrix of shape (n, n)
+                for which the definiteness will be calculated.
 
-    Raises:
-        TypeError: If matrix is not a numpy.ndarray.
+        Raises:
+            TypeError: If the input is not a numpy.ndarray.
+            ValueError: If the matrix is not square or empty.
+
+        Returns:
+            str: A string indicating the definiteness:
+                - "Positive definite"
+                - "Negative definite"
+                - "Negative semi-definite"
+                - "Positive semi-definite"
+                - "Indefinite"
+                - None if the input matrix is invalid.
     """
 
     if not isinstance(matrix, np.ndarray):
