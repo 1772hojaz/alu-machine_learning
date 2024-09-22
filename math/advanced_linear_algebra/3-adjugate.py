@@ -135,6 +135,6 @@ def adjugate(matrix):
         for j in range(m_size):
             sub_minor = [row[:j] + row[j + 1:] for k, row in enumerate(matrix) if k != i]
             cofactor_value = ((-1) ** (i + j)) * determinant(sub_minor)
-            adj_matrix[j][i] = cofactor_value
+            matrices[j][i] = cofactor_value
 
     return matrices
