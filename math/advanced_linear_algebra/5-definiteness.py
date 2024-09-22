@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-import numpy as np
-
 """
 this fn Determines the definiteness of a given square matrix.
 """
+
+import numpy as np
 
 
 def definiteness(matrix):
