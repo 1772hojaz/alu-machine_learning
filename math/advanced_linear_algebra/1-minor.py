@@ -4,6 +4,7 @@
 A function that calculates the minor matrix of a matrix.
 """
 
+
 def determinant(matrix):
     """
     Calculates the determinant of a square matrix.
@@ -38,6 +39,7 @@ def determinant(matrix):
         det += matrix[0][i] * cof
     return det
 
+
 def minor(matrix):
     """
     Calculates the minor matrix of a given square matrix.
@@ -52,18 +54,19 @@ def minor(matrix):
     Returns:
         The minor matrix of the input matrix.
     """
-    
+
     if not all(isinstance(row, list) for row in matrix):
         raise TypeError("matrix must be a list of lists")
 
     if not matrix or len(matrix) != len(matrix[0]):
         raise ValueError("matrix must be a non-empty square matrix")
-    
+
     m_len = len(matrix)
     min_matrix = [[0] * m_len for _ in range(m_len)]
-    
+
     for i in range(m_len):
         for j in range(m_len):
-            sub_minor = [row[:j] + row[j + 1:] for k, row in enumerate(matrix) if k != i]
+            sub_minor = [row[:j] + row[j + 1:] for k, row in enumerate(
+                matrix) if k != i]
             min_matrix[i][j] = determinant(sub_minor)
     return min_matrix
