@@ -106,6 +106,7 @@ def cofactor(matrix):
 
     return cof_matrix
 
+
 def adjugate(matrix):
     """
     Calculates the adjugate matrix of a given square matrix.
@@ -121,8 +122,8 @@ def adjugate(matrix):
         The adjugate matrix of the input matrix.
     """
 
-
-    if not isinstance(matrix, list) or not all(isinstance(row, list) for row in matrix):
+    if not isinstance(matrix, list
+                      ) or not all(isinstance(row, list) for row in matrix):
         raise TypeError("matrix must be a list of lists")
 
     if not matrix or len(matrix) != len(matrix[0]):
@@ -133,7 +134,8 @@ def adjugate(matrix):
 
     for i in range(m_size):
         for j in range(m_size):
-            sub_minor = [row[:j] + row[j + 1:] for k, row in enumerate(matrix) if k != i]
+            sub_minor = [row[:j] + row[j + 1:] for k, row in enumerate(
+                matrix) if k != i]
             cofactor_value = ((-1) ** (i + j)) * determinant(sub_minor)
             matrices[j][i] = cofactor_value
 
