@@ -20,10 +20,10 @@ def determinant(matrix):
     """
 
     if not all(isinstance(row, list) for row in matrix):
-        raise TypeError("matrix must be a list of lists")
+        raise TypeError("matrix must be a non-empty square matrix")
 
     if not matrix or not matrix[0]:
-        return 1  # Assuming 0x0 matrix returns 1
+        return 1
 
     if len(matrix) != len(matrix[0]):
         raise ValueError("matrix must be a square matrix")
@@ -60,11 +60,10 @@ def minor(matrix):
         raise ValueError("matrix must be a non-empty square matrix")
     
     m_len = len(matrix)
-    min_matrix = [[0] * m_len for _ in range(m_len)]  # Initialize minor matrix
+    min_matrix = [[0] * m_len for _ in range(m_len)]
     
     for i in range(m_len):
         for j in range(m_len):
             sub_minor = [row[:j] + row[j + 1:] for k, row in enumerate(matrix) if k != i]
-            min_matrix[i][j] = determinant(sub_minor)  # Calculate determinant of submatrix
-    
+            min_matrix[i][j] = determinant(sub_minor)
     return min_matrix
