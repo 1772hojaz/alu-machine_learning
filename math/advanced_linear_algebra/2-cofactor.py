@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 A function that calculates the minor matrix of a matrix.
 """
