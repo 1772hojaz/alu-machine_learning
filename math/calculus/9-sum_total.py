@@ -1,13 +1,11 @@
-#/usr/bin/env python3
+#!/usr/bin/env python3
 
 def summation_i_squared(n):
-    if  isinstance(n, int) and n > 0 :
-        i = 1
-        x = 0
-        for i in range(i,1,n):
-            x += i**2
-
-            return x
-
-    else:
+    if not isinstance(n, int) or n < 1:
         return None
+
+    x = 0
+    for i in range(1, n + 1):
+        x += i**2
+
+    return x
