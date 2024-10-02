@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Translate mathematical operations into code"""
 
+
 def poly_integral(poly, C=0):
     """Calculates the integral of a polynomial.
 
