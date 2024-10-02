@@ -16,14 +16,15 @@ def poly_integral(poly, C=0):
         or None if the input is invalid.
     """
 
-    if not isinstance(poly, list):
+    if type(poly) != list or type(C) != int:
         return None
     if len(poly) == 0:
         return None
 
     integral = [C]
+    if poly == [0]:
+        return integral
     idx = 1
-
     for i in poly:
         integral.append(i / idx)
         if integral[idx] % 1 == 0:
