@@ -2,6 +2,8 @@
 """
 This function calculates ∑(i=1 to n) i²
 """
+
+
 def summation_i_squared(n):
     """
     Calculate the sum of squares of the first n integers.
