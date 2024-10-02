@@ -24,8 +24,7 @@ def poly_derivative(poly):
               None if the input is invalid.
     """
 
-    if not isinstance(poly, list) or not all(
-            isinstance(c, (int, float)) for c in poly):
+    if not isinstance(poly, list):
         return None
     if len(poly) == 1:
         return [0]
@@ -34,6 +33,9 @@ def poly_derivative(poly):
 
     for i in range(1, len(poly)):
         derivative.append(i * poly[i])
+
+    if len(derivative) == 0:
+        return None
 
     if not derivative:
         return [0]
