@@ -54,3 +54,20 @@ class Normal:
                     )) * (e ** (-0.5 * (self.z_score(x) ** 2)))
 
         return pdf
+
+    def cdf(self, x):
+        """
+            retuns CDF given x-value
+        """
+
+        pi = 3.1415926536
+
+        standardized_value = (x - self.mean) / (self.stddev * (2 ** 0.5))
+        approximation = (standardized_value
+                         - (standardized_value ** 3) / 3
+                         + (standardized_value ** 5) / 10
+                         - (standardized_value ** 7) / 42
+                         + (standardized_value ** 9) / 216)
+        approximation *= (2 / (pi ** 0.5))
+        cdf = 0.5 * (1 + approximation)
+        return cdf
