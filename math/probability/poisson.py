@@ -27,8 +27,8 @@ class Poisson:
         """
             calculates the value of PMF for a given number of successes k
         """
-
-        k = int(k)
+        if type(k) is not int:
+            k = int(k)
         if k < 0:
             return 0
         e = 2.7182818285
