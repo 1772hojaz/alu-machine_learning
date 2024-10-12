@@ -27,3 +27,13 @@ class Exponential:
             if len(data) < 2:
                 raise ValueError('data must contain multiple values')
             self.lambtha = float(1 / (sum(data) / len(data)))
+
+    def pdf(self, x):
+        """
+            x is the time period
+        """
+        if x < 0:
+            return 0
+        e = 2.7182818285
+        pdf = self.lambtha**(-self.lambtha*x)
+        return pdf
