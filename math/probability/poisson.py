@@ -22,6 +22,7 @@ class Poisson:
             if len(data) < 2:
                 raise ValueError('data must contain multiple values')
             self.lambtha = float(sum(data) / len(data))
+
     def k_fact(self, a):
         """
         Calculates the factorial
@@ -41,6 +42,5 @@ class Poisson:
         if k < 0:
             return 0
         e = 2.7182818285
-
-        x = ((self.lambtha ** k) * (e**-self.lambtha))/ self.k_fact(k)
+        x = ((self.lambtha ** k) * (e ** -self.lambtha)) / self.k_fact(k)
         return x
