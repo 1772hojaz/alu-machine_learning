@@ -37,3 +37,12 @@ class Exponential:
         e = 2.7182818285
         pdf = self.lambtha * (e ** (-self.lambtha * x))
         return pdf
+
+    def cdf(self, x):
+        """
+            CALCULATES THE VALUE OF THE CDF FOR A GIVEN TIME PERIOD k
+        """
+
+        e = 2.7182818285
+        cdf = 1 - e ** (-self.lambtha * x)
+        return cdf
