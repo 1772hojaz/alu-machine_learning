@@ -6,12 +6,13 @@ class Normal:
     """
         the class
     """
-    if data is None:
-            if stddev < 1:
-                raise ValueError("stddev must be a positive value")
-            else:
-                self.stddev = float(stddev)
-                self.mean = float(mean)
+    def __init__(self, data=None, mean=0., stddev=1.):
+        if data is None:
+                if stddev < 1:
+                    raise ValueError("stddev must be a positive value")
+                else:
+                    self.stddev = float(stddev)
+                    self.mean = float(mean)
         else:
             if type(data) is not list:
                 raise TypeError("data must be a list")
@@ -23,6 +24,6 @@ class Normal:
                 summation = 0
                 for x in data:
                     summation += ((x - mean) ** 2)
-                stddev = (summation / len(data)) ** (1 / 2)
-                self.stddev = stddev
+                    stddev = (summation / len(data)) ** (1 / 2)
+                    self.stddev = stddev
 
