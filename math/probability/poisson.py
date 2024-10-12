@@ -56,6 +56,7 @@ class Poisson:
         cdf = 0
         e = 2.7182818285
 
-        for i in range(k +1):
-            cdf += ((e ** -self.lambtha) * (self.lambtha ** i)) / self.k_fact(i)
+        for i in range(k + 1):
+            cdf += ((e ** -self.lambtha) * (self.lambtha ** i)
+                    ) / self.k_fact(i)
         return cdf
