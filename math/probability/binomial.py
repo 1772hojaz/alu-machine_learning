@@ -6,11 +6,12 @@
     or assumptions.
 """
 
-class Binominal:
+
+class Binomial:
+    """
+        Binomial class
+    """
     def __init__(self, data=None, n=1, p=0.5):
-        """
-            Binomial class
-        """
 
         if data is None:
             if n < 1:
