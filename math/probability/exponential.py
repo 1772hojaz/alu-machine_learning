@@ -43,6 +43,9 @@ class Exponential:
             CALCULATES THE VALUE OF THE CDF FOR A GIVEN TIME PERIOD k
         """
 
+        if x < 0 :
+            return 0
+
         e = 2.7182818285
         cdf = 1 - e ** (-self.lambtha * x)
         return cdf
