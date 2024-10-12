@@ -42,5 +42,5 @@ class Poisson:
             return 0
         e = 2.7182818285
 
-        return ((self.lambtha ** k) * (e ** (-self.lambtha))
-                 / (self.k_fact(k)))
+        x = ((self.lambtha ** k) * (e**-self.lambtha))/ self.k_fact(k)
+        return x
