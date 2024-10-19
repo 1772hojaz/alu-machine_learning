@@ -1,0 +1,2 @@
+Variance is a statistical measurement to see how far each number in a data set is from the mean. Variance is often depicted by this symbol: σ². This calculation can be an indicator for analysts and traders of how often the number changes, also referred to as volatility, which can also be a signal of further change and the risk it poses for the people it impacts. The square root of variance is the standard deviation (σ), which assists in determining the consistency of an investment’s return over a period of time.
+
