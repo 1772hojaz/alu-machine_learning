@@ -11,7 +11,8 @@ class MultiNormal:
         Multi-variable Normal distribution
     """
     def __init__(self, data):
-        if type(data) != np.ndarray:
+
+        if not isinstance(data, np.ndarray):
             raise TypeError("data must be a 2D numpy.ndarray")
 
         if len(data.shape) != 2:
@@ -43,11 +44,9 @@ class MultiNormal:
 
         if not isinstance(x, np.ndarray):
             raise TypeError("x must be a numpy.ndarray")
-        
+
         if len(x.shape) != 2 or x.shape[1] != 1 or x.shape[0] != d:
             raise ValueError("x must have the shape ({}, 1)".format(d))
-        
-        
 
         det = np.linalg.det(self.cov)
 
