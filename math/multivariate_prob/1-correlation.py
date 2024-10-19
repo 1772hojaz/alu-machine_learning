@@ -24,8 +24,7 @@ def correlation(C):
         raise ValueError("C must be a 2D square matrix")
     if C.shape[0] != C.shape[1]:
         raise ValueError("C must be a 2D square matrix")
-    stdev =  np.sqrt(np.diag(C))
+    stdev = np.sqrt(np.diag(C))
     cor = C / (stdev[:, np.newaxis] * stdev[np.newaxis, :])
 
     return cor
-
