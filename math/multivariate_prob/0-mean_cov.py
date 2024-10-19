@@ -1,10 +1,19 @@
 #!/usr/bin/env python3
-import numpy as np
 """Function that calculates the mean and covariance of a data set"""
+
+import numpy as np
 
 
 def mean_cov(x):
-    """this function calculates mean and covarience"""
+    """
+        x: numpy.ndarray of shape (n, d)
+            Contains the dataset, where:
+            n: number of data points
+            d: number of dimensions in each data point
+
+        mean: numpy.ndarray of shape (1, d)
+            The mean of the dataset.
+    """
     if not isinstance(x, np.ndarray) or x.ndim != 2:
         raise TypeError("X must be a 2D numpy.ndarray")
     n, d = x.shape
