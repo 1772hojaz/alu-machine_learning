@@ -7,7 +7,7 @@ from scipy import special
 
 def posterior(x, n, p1, p2):
     """
-        Calculates the posterior probability that the probability of developing 
+        Calculates the posterior probability that the probability of developing
         severe side effects falls within a specific range given the data.
 
         Parameters:
@@ -17,7 +17,8 @@ def posterior(x, n, p1, p2):
         p2 (float): The upper bound on the range.
 
         Returns:
-        float: The posterior probability that p is within the range [p1, p2] given x and n.
+        float: The posterior probability that p is within the
+        range [p1, p2] given x and n.
 
         Raises:
         ValueError: If n is not a positive integer.
