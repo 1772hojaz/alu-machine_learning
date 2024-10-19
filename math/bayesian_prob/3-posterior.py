@@ -6,18 +6,21 @@ import numpy as np
 
 def posterior(x, n, P, Pr):
     """
-    Calculates the posterior probability for the various hypothetical probabilities of 
+    Calculates the posterior probability for
+    the various hypothetical probabilities of
     developing severe side effects given the data.
 
     Parameters:
     x (int): The number of patients that develop severe side effects.
     n (int): The total number of patients observed.
-    P (numpy.ndarray): A 1D numpy.ndarray containing the various hypothetical probabilities 
+    P (numpy.ndarray): A 1D numpy.ndarray containing the
+    various hypothetical probabilities
                        of developing severe side effects.
     Pr (numpy.ndarray): A 1D numpy.ndarray containing the prior beliefs of P.
 
     Returns:
-    numpy.ndarray: A 1D numpy.ndarray containing the posterior probability for each 
+    numpy.ndarray: A 1D numpy.ndarray containing
+    the posterior probability for each
                    probability in P given x and n.
 
     Raises:
@@ -28,7 +31,7 @@ def posterior(x, n, P, Pr):
                 If Pr does not sum to 1.
     TypeError: If P is not a 1D numpy.ndarray.
                If Pr is not a numpy.ndarray with the same shape as P.
-    
+
     """
 
     if not isinstance(n, int) or (n <= 0):
