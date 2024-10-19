@@ -7,6 +7,9 @@ import numpy as np
 
 
 class MultiNormal:
+    """
+        Multi-variable Normal distribution
+    """
     def __init__(self, data):
         if type(data) != np.ndarray:
             raise TypeError("data must be a 2D numpy.ndarray")
