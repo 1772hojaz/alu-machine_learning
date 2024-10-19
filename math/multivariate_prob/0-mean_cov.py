@@ -4,15 +4,7 @@ import numpy as np
 
 
 def mean_cov(x):
-    """
-        x: numpy.ndarray of shape (n, d)
-            Contains the dataset, where:
-            n: number of data points
-            d: number of dimensions in each data point
-
-        mean: numpy.ndarray of shape (1, d)
-            The mean of the dataset.
-    """
+    """this function calculates mean and covarience"""
     if not isinstance(x, np.ndarray) or x.ndim != 2:
         raise TypeError("X must be a 2D numpy.ndarray")
     n, d = x.shape
