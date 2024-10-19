@@ -23,5 +23,6 @@ def correlation(C):
     if len(C.shape) != 2:
         raise ValueError("C must be a 2D square matrix")
 
-    cor = np.corrcoef(C)
+    cor = np.corrcoef(C).reshape(2, 2)
     return cor
+
