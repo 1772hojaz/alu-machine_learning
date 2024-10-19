@@ -25,39 +25,40 @@ class MultiNormal:
         m = data - self.mean
         self.cov = (m @ m.T) / (n - 1)
 
-        def pdf(self, x):
-            """
-                Calculates the PDF at a data point.
+    def pdf(self, x):
+        """
+            Calculates the PDF at a data point.
 
-                Args:
-                    x (numpy.ndarray): The data point of shape (d, 1).
+            Args:
+                x (numpy.ndarray): The data point of shape (d, 1).
 
-                Raises:
-                    TypeError: If x is not a numpy.ndarray.
-                    ValueError: If x does not have shape (d, 1).
+            Raises:
+                TypeError: If x is not a numpy.ndarray.
+                ValueError: If x does not have shape (d, 1).
 
-                Returns:
-                    float: The value of the PDF at x.
-            """
-            if type(x) is not np.ndarray:
-                raise TypeError("x must be a numpy.ndarray")
-            
-            d = self.cov.shape[0]
+            Returns:
+                float: The value of the PDF at x.
+        """
+        d = self.cov.shape[0]
 
-            if len(x.shape) != 2 or x.shape[1] != 1 or x.shape[0] != d:
-                raise ValueError("x must have the shape ({}, 1)".format(d))
+        if not isinstance(x, np.ndarray):
+            raise TypeError("x must be a numpy.ndarray")
+        
+        if len(x.shape) != 2 or x.shape[1] != 1 or x.shape[0] != d:
+            raise ValueError("x must have the shape ({}, 1)".format(d))
+        
+        
 
-            det = np.linalg.det(self.cov)
+        det = np.linalg.det(self.cov)
 
-            inverse = np.linalg.inv(self.cov)
+        inverse = np.linalg.inv(self.cov)
 
-            fst = 1 / ((2 * np.pi) ** (d / 2) * np.sqrt(det))
+        fst = 1 / ((2 * np.pi) ** (d / 2) * np.sqrt(det))
 
-            sec = np.dot((x - self.mean).T, inverse)
+        sec = np.dot((x - self.mean).T, inverse)
 
-            thrd = np.dot(sec, (x - self.mean) / -2)
+        thrd = np.dot(sec, (x - self.mean) / -2)
 
-            pdf = fst * np.exp(thrd)
+        pdf = fst * np.exp(thrd)
 
-            return pdf[0][0]
-
+        return pdf[0][0]
