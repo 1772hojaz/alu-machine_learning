@@ -4,6 +4,7 @@
 """
 import numpy as np
 
+
 def convolve(images, kernels, padding='same', stride=(1, 1)):
     """
     Performs a convolution on images using multiple kernels.
@@ -47,4 +48,3 @@ def convolve(images, kernels, padding='same', stride=(1, 1)):
                 convoluted[:, i, j, index] = output
 
     return convoluted
-
