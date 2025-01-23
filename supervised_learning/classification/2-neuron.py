@@ -36,8 +36,16 @@ class Neuron:
         return self.__A
 
     def forward_prop(self, X):
-        x = np.array(X)
-        nx = self.nx
-        m = X.size
-        x = x.reshape(nx, m)
+        """
+            so Basically a neuron has Y =mX + b and
+            a nonlinearisation function.in this case a
+            sigmoid function.
+        """
 
+        w = self.__W
+        b = self.__b
+
+        z = 1/(1 + np.exp(-1 * (np.dot(w,X) + b)))
+        self.__A = z
+
+        return self.__A
