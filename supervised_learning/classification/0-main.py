@@ -16,4 +16,3 @@ print(neuron.b)
 print(neuron.A)
 neuron.A = 10
 print(neuron.A)
-
