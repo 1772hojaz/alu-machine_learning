@@ -45,7 +45,7 @@ class Neuron:
         w = self.__W
         b = self.__b
 
-        z = 1/(1 + np.exp(-1 * (np.dot(w,X) + b)))
+        z = 1/(1 + np.exp(-1 * (np.dot(w, X) + b)))
         self.__A = z
 
         return self.__A
