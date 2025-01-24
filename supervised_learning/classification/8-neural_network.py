@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
+"""
+Neural Network with one hidden layer
+"""
 
 import numpy as np
+
 
 class NeuralNetwork:
     def __init__(self, nx, nodes):
