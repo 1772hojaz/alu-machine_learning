@@ -7,6 +7,9 @@ import numpy as np
 
 
 class NeuralNetwork:
+    """
+    Neural Network
+    """
     def __init__(self, nx, nodes):
         if type(nx) is not int:
             raise TypeError("nx must be an integer")
