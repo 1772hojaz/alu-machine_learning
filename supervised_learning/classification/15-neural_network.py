@@ -3,6 +3,7 @@
 Neural Network with one hidden layer
 """
 
+import matplotlib.pyplot as plt
 import numpy as np
 
 
