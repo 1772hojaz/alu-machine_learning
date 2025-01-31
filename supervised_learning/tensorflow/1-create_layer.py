@@ -10,7 +10,7 @@ import tensorflow as tf
 
 def create_layer(prev, n, activation):
     '''
-    args: 
+    args:
         prev:  is the tensor output of the previous layer
         n: is the number of nodes in the layer to create
         activation: is the activation function that the layer should use
