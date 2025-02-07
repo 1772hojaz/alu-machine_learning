@@ -20,7 +20,6 @@ def l2_reg_cost(cost, lambtha, weights, L, m):
         if weight_key in weights:
             l2_term += np.sum(np.square(weights[weight_key]))
 
-
     l2_term = (lambtha / (2 * m)) * l2_term
     l2_cost = cost + l2_term
 
