@@ -1,4 +1,4 @@
- #!/usr/bin/env python3
+#!/usr/bin/env python3
 """
     Function def moving_average(data, beta):
     that calculates the weighted moving average of a data set:
