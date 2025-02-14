@@ -8,3 +8,4 @@ What is Bayes error?
 How can you approximate Bayes error?
 How to calculate bias and variance
 How to create a confusion matrix
+
