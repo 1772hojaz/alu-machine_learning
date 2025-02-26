@@ -5,7 +5,8 @@
 """
 import pandas as pd
 
+
 def from_numpy(array):
     columns = [chr(65 + i) for i in range(array.shape[1])]
-    df = pd.DataFrame(array, columns = columns)
+    df = pd.DataFrame(array, columns=columns)
     return df
