@@ -6,6 +6,6 @@
 import pandas as pd
 
 def from_numpy(array):
-    columns = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    columns = [chr(65 + i) for i in range(array.shape[1])]
     df = pd.DataFrame(array, columns = columns)
     return df
