@@ -5,7 +5,6 @@
 
 """
 import pandas as pd
-import os
 
 
 def from_file(filename, delimiter):
