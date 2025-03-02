@@ -22,12 +22,12 @@ def sentientPlanets():
         speciesList += result.get("results")
         link = result.get("next")
 
-        homePlanets = []
-        for i in speciesList:
-            if i.get("designation") == "sentient" or \
-             i.get("classification") == "sentient":
-                link = i.get("homeworld")
-                if link:
-                    planet = res.get(link).json()
-                    homePlanets.append(planet.get("name"))
-        return homePlanets
+    homePlanets = []
+    for i in speciesList:
+        if i.get("designation") == "sentient" or \
+         i.get("classification") == "sentient":
+            link = i.get("homeworld")
+            if link:
+                planet = res.get(link).json()
+                homePlanets.append(planet.get("name"))
+    return homePlanets
