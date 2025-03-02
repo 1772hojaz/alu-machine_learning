@@ -35,14 +35,15 @@ def userLocation(user):
         print("Not found")
 
     elif respond.status_code == 403:
-        time_reset = int(response.headers["X-Ratelimit-Reset"])
+        time_reset = int(respond.headers["X-Ratelimit-Reset"])
         currentTime = int(time.time())
         resetMinutes = (time_reset - currentTime) // 60
         print("Reset in {} min".format(resetMinutes))
     else:
-        print(respond.json()["location"])
+        print(respond.json().get("location", "Location not available"))
 
-    if __name__ == "__main__":
-        import sys
 
-        userLocation(sys.argv[1])
+if __name__ == "__main__":
+    import sys
+
+    userLocation(sys.argv[1])
