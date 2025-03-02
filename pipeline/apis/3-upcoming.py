@@ -35,7 +35,7 @@ def upComing():
     """
     link = "https://api.spacexdata.com/v4/launches/upcoming"
     respond = res.get(link)
-    launches = res.json()
+    launches = respond.json()
 
     # grouping launch by date
     launches.sort(key=lambda x: x["date_unix"])
@@ -60,7 +60,7 @@ def upComing():
 
     rocket_link = "https://api.spacexdata.com/v4/rockets/{}".format(rocket_id)
     rocket_respond = res.get(rocket_link)
-    rocket_name = rocket_respond.json().get["name"]
+    rocket_name = rocket_respond.json()["name"]
 
     # lauchpad
 
@@ -68,7 +68,7 @@ def upComing():
         launchpad_id
         )
     launchp_respond = res.get(launchp_link)
-    lauchp_data = launchp_respond.json()
+    launchp_data = launchp_respond.json()
     launchp_name = launchp_data["name"]
     launchp_locality = launchp_data["locality"]
 
