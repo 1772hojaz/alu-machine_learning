@@ -24,6 +24,11 @@ from datetime import datetime
 
 
 def userLocation(user):
+    """
+    The user is passed as first argument of the script with
+    the full API URL, example:
+    ./2-user_location.py https://api.github.com/users/holbertonschool
+    """
     respond = res.get(user)
 
     if respond.status_code == 404:
