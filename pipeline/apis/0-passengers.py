@@ -13,6 +13,11 @@ import requests as res
 
 
 def availableShips(passengerCount):
+    """
+    Prototype: def availableShips(passengerCount):
+    Don’t forget the pagination
+    If no ship available, return an empty list.
+    """
     link = "https://swapi-api.alx-tools.com/api/starships/"
     ships = []
 
