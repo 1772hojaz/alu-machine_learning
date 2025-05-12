@@ -10,4 +10,9 @@ class NSF:
         alpha = alpha
         beta = beta
 
-    if type(style_image) is not np.ndarry
+    if type(style_image) is not np.ndarry or len(stlye_image.shape) != 3:
+        raise TypeError(
+                "style_image must be a numpy.ndarray with shape (h, w, 3)")
+        style_h, style_w, style_c = style_image.shape
+        content_h, content_w, content_c = content_image.shape
+
