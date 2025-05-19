@@ -1,60 +1,40 @@
 #!/usr/bin/env python3
 '''
-    a class GRUCell
+LSTM
 '''
 
 
 import numpy as np
 
 
-class GRUCell:
+class LSTMCell:
     '''
-        Class GRUCell that represents a gated recurrent unit\
+    Class that represents a cell of a LSTM
     '''
-
     def __init__(self, i, h, o):
         '''
-            Class constructor
+        Class constructor
         '''
-
-        self.Wz = np.random.normal(size=(h + i, h))
-        self.Wr = np.random.normal(size=(h + i, h))
-        self.Wh = np.random.normal(size=(h + i, h))
+        self.Wf = np.random.normal(size=(h + i, h))
+        self.Wu = np.random.normal(size=(h + i, h))
+        self.Wc = np.random.normal(size=(h + i, h))
+        self.Wo = np.random.normal(size=(h + i, h))
         self.Wy = np.random.normal(size=(h, o))
-        self.bz = np.zeros((1, h))
-        self.br = np.zeros((1, h))
-        self.bh = np.zeros((1, h))
+        self.bf = np.zeros((1, h))
+        self.bu = np.zeros((1, h))
+        self.bc = np.zeros((1, h))
+        self.bo = np.zeros((1, h))
         self.by = np.zeros((1, o))
 
-    def softmax(self, x):
-        """
-        Performs the softmax function
-        """
-        e_x = np.exp(x - np.max(x, axis=1, keepdims=True))
-        softmax = e_x / e_x.sum(axis=1, keepdims=True)
-        return softmax
-
-    def sigmoid(self, x):
-        """
-        Performs the sigmoid function
-        """
-        sigmoid = 1 / (1 + np.exp(-x))
-        return sigmoid
-
-    def forward(self, h_prev, x_t):
-        '''
-            Function that performs forward propagation
-        '''
-
-        concatenation1 = np.concatenate((h_prev, x_t), axis=1)
-        z_gate = self.sigmoid(np.matmul(concatenation1, self.Wz) + self.bz)
-        r_gate = self.sigmoid(np.matmul(concatenation1, self.Wr) + self.br)
-
-        concatenation2 = np.concatenate((r_gate * h_prev, x_t), axis=1)
-        h_next = np.tanh(np.matmul(concatenation2, self.Wh) + self.bh)
-        h_next *= z_gate
-        h_next += (1 - z_gate) * h_prev
-
-        y = self.softmax(np.matmul(h_next, self.Wy) + self.by)
-
-        return h_next, y
+    def forward(self, h_prev, c_prev, x_t):
+        ''' Method that performs forward propagation for one time step '''
+        h_x = np.hstack((h_prev, x_t))
+        f = 1 / (1 + np.exp(-(np.dot(h_x, self.Wf) + self.bf)))
+        u = 1 / (1 + np.exp(-(np.dot(h_x, self.Wu) + self.bu)))
+        o = 1 / (1 + np.exp(-(np.dot(h_x, self.Wo) + self.bo)))
+        c_tilde = np.tanh(np.dot(h_x, self.Wc) + self.bc)
+        c_next = f * c_prev + u * c_tilde
+        h_next = o * np.tanh(c_next)
+        y = np.dot(h_next, self.Wy) + self.by
+        y = np.exp(y) / np.sum(np.exp(y), axis=1, keepdims=True)
+        return h_next, c_next, y
