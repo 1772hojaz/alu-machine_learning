@@ -1,32 +1,40 @@
 #!/usr/bin/env python3
-'''
-    Script that defines a function def bi_rnn(bi_cell, X, h_0, h_t)
-'''
+"""
+ a function bi_rnn perfoms forward propagation bidirectional RNN
+"""
 
 
 import numpy as np
 
 
-def bi_rnn(bi_cell, X, h_0, h_T):
-    '''
-        Function that performs forward propagation for a bidirectional RNN
-
-    '''
+def bi_rnn(bi_cells, X, h_0, h_t):
+    """forward propagation for bi rnn
+    bi_cells - instance of BidirectionalCell
+    """
 
     t, m, i = X.shape
-    l, m, h = h_0.shape
-    H = np.zeros((t + 1, 2, m, h))
-    H[0, 0] = h_0
-    H[0, 1] = h_T
+    h = h_0.shape[1]
+
+    # Initialize the hidden states container
+    Hf = np.zeros((t + 1, m, h))
+    Hb = np.zeros((t + 1, m, h))
+
+    # Initialize the hidden states
+    Hf[0] = h_0
+    Hb[-1] = h_t
+
+    # forward direction
     for step in range(t):
-        h_prev, y = bi_cell.forward(H[step, 0], X[step])
-        H[step + 1, 0] = h_prev
-        h_next, y = bi_cell.forward(H[step, 1], y)
-        H[step + 1, 1] = h_next
-        if step == 0:
-            Y = y
-        else:
-            Y = np.concatenate((Y, y))
-    output_shape = Y.shape[-1]
-    Y = Y.reshape(t, 2, m, output_shape)
-    return (H, Y)
+        Hf[step + 1] = bi_cells.forward(Hf[step], X[step])
+
+    # backward direction
+    for step in range(t-1, -1, -1):
+        Hb[step] = bi_cells.backward(Hb[step + 1], X[step])
+
+    # concatenate hidden states
+    H = np.concatenate((Hf[1:], Hb[:-1]), axis=-1)
+
+    # compute outputs
+    Y = bi_cells.output(H)
+
+    return H, Y
