@@ -1,14 +1,32 @@
 #!/usr/bin/env python3
-
 """
-Function called bags_of_words(sentences, vocab=None)
+Defines function that creates a bag of words embedding matrix
 """
 
-from sklearn.feather_extraction.text import CountVectorizer
+
+from sklearn.feature_extraction.text import CountVectorizer
+
 
 def bag_of_words(sentences, vocab=None):
     """
-        this function creates a bag of words embedding matrix
+    Creates a bag of words embedding matrix
+
+    parameters:
+        sentences [list]:
+            list of sentences to analyze
+
+        vocab [list]:
+            list of vocabulary words to use for analysis
+            if None, all words within sentences should be used
+
+    returns:
+        embeddings,features:
+            embeddings [numpy.ndarray of shape (s, f)]:
+                contains the embeddings
+                s: number of sentences in sentences
+                f: number of features analyzed
+            features [list]:
+                list of features used for embeddings
     """
     vectorizer = CountVectorizer(vocabulary=vocab)
     X_train_counts = vectorizer.fit_transform(sentences)
