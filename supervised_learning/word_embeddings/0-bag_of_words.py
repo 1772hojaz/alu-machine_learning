@@ -11,6 +11,8 @@ def bag_of_words(sentences, vocab=None):
         this function creates a bag of words embedding matrix
     """
     bow = CountVectorizer(vocabulary=vocab)
-    matrix = bow.fit_transform(sentences).toarray()
-    features = List(bow.vocabulary_.keys()) if vocab else bow.get_feature_names_out().toList()
+    x = bow.fit_transform(sentences)
+    matrix = x.toarray()
+    features = vectorizer.get_feature_names_out().tolist()
     return matrix, features
+
