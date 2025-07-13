@@ -1,0 +1,2 @@
+Clustering is a machine learning technique used to group similar data points into clusters, where data points within a cluster are more alike than those in other clusters. It's an unsupervised learning method, meaning it doesn't require pre-defined labels for the data. Clustering algorithms aim to discover inherent structures and patterns within datasets, allowing for data analysis, exploration, and segmentation. 
+
